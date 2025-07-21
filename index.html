@@ -1,101 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>George Katsoulis – Portfolio</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #222;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #0077cc;
-    }
-    .project {
-      margin-bottom: 1.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Data Analyst Portfolio</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font to the entire body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background for a tech/data feel */
+            color: #e2e8f0; /* Light text for contrast */
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        /* Styling for the canvas background */
+        #animated-background-canvas {
+            position: fixed; /* Fixes the canvas to the viewport */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            z-index: -1; /* Places it behind other content */
+            background-color: transparent; /* Ensure canvas background is transparent */
+        }
+
+        /* Main content container styling */
+        .main-content {
+            position: relative; /* Allows z-index to work against fixed canvas */
+            z-index: 1; /* Ensures content is above the canvas */
+            padding: 2rem; /* Add some padding around the content */
+            max-width: 1200px; /* Max width for content readability */
+            margin: 0 auto; /* Center the content */
+        }
+
+        /* Section padding for consistent spacing */
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Project card styling */
+        .project-card {
+            background-color: #161b22; /* Slightly lighter dark background for cards */
+            border: 1px solid #30363d; /* Subtle border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6a758a;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>George Katsoulis</h1>
-    <p class="subtitle">Aspiring Data Analyst | Spreadsheet Specialist | Tech Enthusiast</p>
-  </header>
+    <!-- Canvas for the animated background -->
+    <canvas id="animated-background-canvas"></canvas>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hi! I'm George, a Computer Engineering graduate passionate about data, technology, and solving real-world problems using spreadsheets, code, and creative solutions. I love simplifying complexity and building tools that make life easier.</p>
-  </section>
+    <!-- Main content of the portfolio -->
+    <div class="main-content">
+        <!-- Header Section -->
+        <header class="text-center py-16">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 animate-fade-in">
+                Hi, I'm <span class="text-blue-400">Your Name</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-delay-1">
+                A passionate Data Analyst transforming complex data into actionable insights.
+            </p>
+            <nav class="flex justify-center space-x-6">
+                <a href="#about" class="text-lg text-blue-300 hover:text-blue-500 transition duration-300 ease-in-out">About</a>
+                <a href="#skills" class="text-lg text-blue-300 hover:text-blue-500 transition duration-300 ease-in-out">Skills</a>
+                <a href="#projects" class="text-lg text-blue-300 hover:text-blue-500 transition duration-300 ease-in-out">Projects</a>
+                <a href="#contact" class="text-lg text-blue-300 hover:text-blue-500 transition duration-300 ease-in-out">Contact</a>
+            </nav>
+        </header>
 
-  <section>
-    <h2>Projects</h2>
+        <!-- About Section -->
+        <section id="about" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <!-- Placeholder image for your profile picture -->
+                    <img src="https://placehold.co/300x300/2a2e37/ffffff?text=Your+Photo" alt="Your Name" class="rounded-full w-48 h-48 mx-auto border-4 border-blue-400 shadow-xl">
+                </div>
+                <div class="md:w-2/3 text-gray-300 text-lg leading-relaxed">
+                    <p class="mb-4">
+                        I am a dedicated Data Analyst with a strong foundation in statistical analysis, data visualization, and machine learning. My expertise lies in extracting meaningful insights from large datasets to drive informed business decisions and optimize processes.
+                    </p>
+                    <p>
+                        With a keen eye for detail and a passion for problem-solving, I thrive on transforming raw data into compelling narratives and interactive dashboards. I am proficient in various tools and technologies, constantly seeking new ways to leverage data for impactful outcomes.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <div class="project">
-      <h3>📊 Excel blah blah</h3>
-      <p>going to do somethign iwht excel here/p>
-      <a href="https://your-excel-project-link.com" target="_blank">View project</a>
+        <!-- Skills Section -->
+        <section id="skills" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                <!-- Skill Card 1 -->
+                <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Programming Languages</h3>
+                    <ul class="list-none space-y-2 text-gray-200">
+                        <li>Python (Pandas, NumPy, Scikit-learn)</li>
+                        <li>R (ggplot2, dplyr)</li>
+                        <li>SQL (PostgreSQL, MySQL, BigQuery)</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Data Visualization</h3>
+                    <ul class="list-none space-y-2 text-gray-200">
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>Matplotlib, Seaborn (Python)</li>
+                        <li>Looker Studio</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Statistical Analysis & ML</h3>
+                    <ul class="list-none space-y-2 text-gray-200">
+                        <li>Descriptive & Inferential Statistics</li>
+                        <li>Regression Analysis</li>
+                        <li>Classification, Clustering</li>
+                        <li>Time Series Analysis</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Tools & Platforms</h3>
+                    <ul class="list-none space-y-2 text-gray-200">
+                        <li>Excel</li>
+                        <li>Jupyter Notebooks</li>
+                        <li>Git & GitHub</li>
+                        <li>Google Cloud Platform (GCP)</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 5 -->
+                <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Data Warehousing</h3>
+                    <ul class="list-none space-y-2 text-gray-200">
+                        <li>Data Modeling</li>
+                        <li>ETL Processes</li>
+                        <li>Data Governance</li>
+                    </ul>
+                </div>
+                <!-- Skill Card 6 -->
+                <div class="bg-gray-700 bg-opacity-70 p-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Soft Skills</h3>
+                    <ul class="list-none space-y-2 text-gray-200">
+                        <li>Problem Solving</li>
+                        <li>Critical Thinking</li>
+                        <li>Communication</li>
+                        <li>Storytelling with Data</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-lg p-8 mb-12">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Sales Performance Dashboard</h3>
+                    <p class="text-gray-300 mb-4">
+                        Developed an interactive Tableau dashboard to visualize sales trends, identify top-performing products, and track regional performance. Utilized SQL for data extraction and cleaning.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:underline">View Project (GitHub)</a>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Customer Churn Prediction</h3>
+                    <p class="text-gray-300 mb-4">
+                        Built a machine learning model using Python (Scikit-learn) to predict customer churn based on historical data, achieving 85% accuracy. Provided insights on key churn drivers.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:underline">View Project (GitHub)</a>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Website Traffic Analysis</h3>
+                    <p class="text-gray-300 mb-4">
+                        Analyzed website traffic data using Google Analytics and R to identify user behavior patterns, optimize conversion funnels, and improve content strategy.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:underline">View Project (GitHub)</a>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="project-card rounded-lg p-6 shadow-md">
+                    <h3 class="text-2xl font-semibold text-blue-300 mb-3">Supply Chain Optimization</h3>
+                    <p class="text-gray-300 mb-4">
+                        Performed an in-depth analysis of supply chain logistics data to identify bottlenecks and recommend strategies for cost reduction and efficiency improvements.
+                    </p>
+                    <a href="#" class="text-blue-400 hover:underline">View Project (GitHub)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-800 bg-opacity-50 rounded-lg shadow-lg p-8 mb-12 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Get in Touch</h2>
+            <p class="text-lg text-gray-300 mb-8">
+                I'm always open to new opportunities and collaborations. Feel free to reach out!
+            </p>
+            <div class="flex flex-col items-center space-y-4">
+                <a href="mailto:your.email@example.com" class="text-blue-400 hover:text-blue-500 text-xl flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    your.email@example.com
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-500 text-xl flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.3 0H3.7A3.7 3.7 0 000 3.7v12.6A3.7 3.7 0 003.7 20h12.6A3.7 3.7 0 0020 16.3V3.7A3.7 3.7 0 0016.3 0zM6.5 17.5H3.5V7.5h3V17.5zM5 6.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM17.5 17.5h-3v-5c0-1.25-.5-2-1.5-2s-1.5.75-1.5 2v5h-3V7.5h3v1.5c.5-.75 1.25-1.5 2.5-1.5s2.5 1 2.5 3.5v5z" clip-rule="evenodd"></path></svg>
+                    LinkedIn Profile
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-500 text-xl flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.167 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.531 1.032 1.531 1.705.94.863 2.463.615 3.04.47.091-.36.359-.615.654-.757-2.333-.267-4.783-1.167-4.783-5.194 0-1.147.409-2.084 1.082-2.82-.109-.267-.47-1.334.103-2.782 0 0 .884-.282 2.894 1.082.84-.233 1.73-.35 2.62-.35.89 0 1.78.117 2.62.35 2.01-1.364 2.894-1.082 2.894-1.082.573 1.448.212 2.515.103 2.782.673.736 1.082 1.673 1.082 2.82 0 4.032-2.45 4.922-4.793 5.183.37.319.682.949.682 1.918 0 1.38-.012 2.489-.012 2.827 0 .268.18.579.688.482C17.135 18.167 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                    GitHub Profile
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 text-gray-500 text-sm">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </footer>
     </div>
 
-    <div class="project">
-      <h3>📈 Google Sheets Task Tracker</h3>
-      <p>Daily Calorie and Macro Calculator</p>
-      <a href="#">Coming Soon</a>
-    </div>
-  </section>
+    <!-- JavaScript for the animated background -->
+    <script>
+        // Get the canvas element and its 2D rendering context
+        const canvas = document.getElementById('animated-background-canvas');
+        const ctx = canvas.getContext('2d');
 
-  <section>
-    <h2>Contact</h2>
-    <p>Feel free to reach out if you'd like to connect!</p>
-    <ul>
-      <li>Email: <a href="mailto:youremail@example.com">katsou.georgios@gmail.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank">linkedin</a></li>
-      <li>GitHub: <a href="https://github.com/gkatsoulis" target="_blank">gkatsoulis</a></li>
-    </ul>
-  </section>
+        // Array to store particle objects
+        const particles = [];
 
-  <footer>
-    © 2025 George Katsoulis. All rights reserved.
-  </footer>
+        // Constants for particle behavior
+        const PARTICLE_COUNT = 100; // Number of particles
+        const PARTICLE_SIZE = 1.5; // Radius of each particle
+        const PARTICLE_SPEED = 0.5; // Max speed of particles
+        const LINE_DISTANCE = 120; // Max distance for lines to connect particles
+        const CONNECTION_LINE_WIDTH = 0.2; // Width of connection lines
+        const PARTICLE_COLOR = 'rgba(66, 153, 225, 0.7)'; // Blue color for particles (Tailwind blue-500 equivalent)
+        const LINE_COLOR = 'rgba(66, 153, 225, 0.2)'; // Lighter blue for lines
 
+        /**
+         * Represents a single particle in the animation.
+         * @param {number} x - Initial x-coordinate.
+         * @param {number} y - Initial y-coordinate.
+         * @param {number} radius - Radius of the particle.
+         * @param {number} dx - Velocity in x-direction.
+         * @param {number} dy - Velocity in y-direction.
+         */
+        class Particle {
+            constructor(x, y, radius, dx, dy) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.dx = dx;
+                this.dy = dy;
+            }
+
+            /**
+             * Draws the particle on the canvas.
+             */
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = PARTICLE_COLOR;
+                ctx.fill();
+            }
+
+            /**
+             * Updates the particle's position and handles boundary collisions.
+             */
+            update() {
+                // Reverse direction if hitting horizontal boundaries
+                if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                    this.dx = -this.dx;
+                }
+                // Reverse direction if hitting vertical boundaries
+                if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                    this.dy = -this.dy;
+                }
+
+                // Update position
+                this.x += this.dx;
+                this.y += this.dy;
+
+                this.draw(); // Redraw the particle at its new position
+            }
+        }
+
+        /**
+         * Initializes the canvas size and creates particles.
+         */
+        function init() {
+            // Set canvas dimensions to fill the viewport
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // Clear existing particles if re-initializing (e.g., on resize)
+            particles.length = 0;
+
+            // Create new particles with random positions and velocities
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const radius = PARTICLE_SIZE;
+                // Ensure particles start within canvas bounds
+                const x = Math.random() * (canvas.width - radius * 2) + radius;
+                const y = Math.random() * (canvas.height - radius * 2) + radius;
+                // Random velocity between -PARTICLE_SPEED and PARTICLE_SPEED
+                const dx = (Math.random() - 0.5) * PARTICLE_SPEED * 2;
+                const dy = (Math.random() - 0.5) * PARTICLE_SPEED * 2;
+                particles.push(new Particle(x, y, radius, dx, dy));
+            }
+        }
+
+        /**
+         * Animation loop: updates particles and draws connections.
+         */
+        function animate() {
+            requestAnimationFrame(animate); // Request the next animation frame
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
+
+            // Iterate through each particle
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update(); // Update particle position and draw it
+
+                // Check for connections with other particles
+                for (let j = i; j < particles.length; j++) {
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+
+                    // Calculate distance between two particles
+                    const distance = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+
+                    // If particles are close enough, draw a line between them
+                    if (distance < LINE_DISTANCE) {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        // Adjust line opacity based on distance (closer = more opaque)
+                        ctx.strokeStyle = `rgba(66, 153, 225, ${1 - (distance / LINE_DISTANCE) * 0.8})`;
+                        ctx.lineWidth = CONNECTION_LINE_WIDTH;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Initialize the animation when the window loads
+        window.onload = function() {
+            init(); // Set up canvas and particles
+            animate(); // Start the animation loop
+        };
+
+        // Handle window resizing to make the animation responsive
+        window.addEventListener('resize', () => {
+            init(); // Re-initialize canvas and particles on resize
+        });
+    </script>
 </body>
 </html>
